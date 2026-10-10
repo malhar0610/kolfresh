@@ -1,0 +1,29 @@
+{
+  "name": "kolfresh",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 3000 --strictPort",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "images": "node scripts/generate-images.mjs",
+    "verify:schedule": "esbuild scripts/verify-schedule.mjs --bundle --format=esm --platform=node --outfile=node_modules/.cache/verify.mjs --log-level=warning && node node_modules/.cache/verify.mjs",
+    "test:orders": "esbuild scripts/orders-smoke.ts --bundle --format=cjs --platform=node --outfile=node_modules/.cache/orders-smoke.cjs --log-level=warning && node node_modules/.cache/orders-smoke.cjs",
+    "test:render": "esbuild scripts/render-smoke.ts --bundle --format=cjs --platform=node --jsx=automatic --loader:.css=empty --outfile=node_modules/.cache/render-smoke.cjs --log-level=warning && node node_modules/.cache/render-smoke.cjs",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name kolfresh",
+    "deploy:dry": "npm run build && wrangler pages deploy dist --project-name kolfresh --dry-run --outfile /dev/null"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "@vitejs/plugin-react": "4.7.0",
+    "typescript": "5.9.2",
+    "vite": "7.1.7"
+  }
+}

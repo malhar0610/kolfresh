@@ -1,0 +1,6 @@
+# Note: Cloudflare Pages automatically serves admin.html at the clean URL /admin
+# (it strips the .html extension), so no explicit /admin rule is needed here.
+
+# SPA fallback — serve the app shell for any unmatched route with a 200,
+# so client-side navigation (and refreshes) always load index.html.
+/*  /index.html  200

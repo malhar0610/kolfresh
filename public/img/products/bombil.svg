@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="560" viewBox="0 0 700 560" role="img" aria-label="Dried Bombil">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#164743"/>
+      <stop offset="1" stop-color="#103a37"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#e9b959" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#e9b959" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="560" fill="url(#bg)"/>
+  <rect width="700" height="560" fill="url(#glow)"/>
+  <circle cx="350" cy="300" r="188" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+  <circle cx="350" cy="300" r="150" fill="rgba(255,255,255,.05)"/>
+  <path d="M180 300c40-40 90-60 140-60s90 20 120 60c-30 50-80 80-130 80s-100-30-130-80z" fill="rgba(255,255,255,.9)"/><path d="M300 300l90-40-10 80z" fill="rgba(255,255,255,.9)"/><circle cx="230" cy="290" r="7" fill="#103a37"/><path d="M150 360c60 30 90 30 150 0" stroke="#e9b959" stroke-width="6" fill="none" opacity=".7"/>
+  <text x="40" y="512" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#f1eee4">Dried Bombil</text>
+  <text x="42" y="540" font-family="Helvetica, Arial, sans-serif" font-size="15" fill="#e9b959" letter-spacing="3">KOLFRESH · FRESH</text>
+</svg>

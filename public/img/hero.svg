@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 900 1000" role="img" aria-label="Fresh coastal seafood on crushed ice">
+  <defs>
+    <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#164743"/>
+      <stop offset="1" stop-color="#103a37"/>
+    </linearGradient>
+    <radialGradient id="hglow" cx="0.5" cy="0.4" r="0.65">
+      <stop offset="0" stop-color="#e9b959" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#e9b959" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1000" fill="url(#hbg)"/>
+  <rect width="900" height="1000" fill="url(#hglow)"/>
+  <g opacity="0.5" fill="rgba(255,255,255,.25)">
+    <circle cx="180" cy="760" r="26"/><circle cx="260" cy="800" r="18"/><circle cx="700" cy="720" r="22"/><circle cx="760" cy="790" r="14"/>
+  </g>
+  <circle cx="450" cy="440" r="250" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+  <circle cx="450" cy="440" r="205" fill="rgba(255,255,255,.05)"/>
+  <g transform="translate(450 440) scale(1.25)">
+    <path d="M-180 0c60-90 160-130 250-130 70 0 120 40 150 130-30 90-80 130-150 130-90 0-190-40-250-130z" fill="rgba(255,255,255,.94)"/>
+    <path d="M220 0l90-60v120z" fill="rgba(255,255,255,.94)"/>
+    <circle cx="-105" cy="-22" r="11" fill="#103a37"/>
+    <path d="M-50 20c40 20 80 20 120 0" stroke="#103a37" stroke-width="6" fill="none" opacity=".22"/>
+  </g>
+  <text x="70" y="900" font-family="Georgia, serif" font-size="46" fill="#f1eee4">Catch today.</text>
+  <text x="70" y="952" font-family="Georgia, serif" font-size="46" fill="#e9b959">Cook tomorrow.</text>
+</svg>
