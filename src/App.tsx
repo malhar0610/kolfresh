@@ -24,6 +24,9 @@ const COPY = {
     remind: 'Remind me when ordering opens', remindSaved: 'You’re on the list — we’ll ping you when ordering opens.',
     cart: 'Your basket', checkout: 'Continue to checkout', tomorrow: 'Tomorrow’s delivery',
     deliveryOn: 'Delivery', fulfilment: 'FULFILMENT DATE',
+    routePreview: 'ROUTE PREVIEW', routeArea: 'Tarabai Park · Kolhapur', plannedRoute: 'SCHEMATIC',
+    routeOrigin: 'KolFresh hub', routeDestination: 'Delivery address',
+    routeNotice: 'Illustrative map only · this prototype does not have live rider GPS or turn-by-turn routing.',
   },
   mr: {
     catch: 'आजचा मासा', how: 'कसे काम करते', orders: 'ऑर्डर स्थिती', search: 'तुमचा आवडता मासा शोधा…',
@@ -38,6 +41,9 @@ const COPY = {
     remind: 'ऑर्डर सुरू झाल्यावर आठवण करून द्या', remindSaved: 'तुम्ही नोंदवले — ऑर्डर सुरू झाल्यावर आम्ही कळवतो.',
     cart: 'तुमची बास्केट', checkout: 'चेकआउट पुढे सुरू ठेवा', tomorrow: 'उद्याची डिलिव्हरी',
     deliveryOn: 'डिलिव्हरी', fulfilment: 'पूर्तता तारीख',
+    routePreview: 'मार्गाचा आराखडा', routeArea: 'ताराबाई पार्क · कोल्हापूर', plannedRoute: 'दर्शनी नकाशा',
+    routeOrigin: 'कोलफ्रेश केंद्र', routeDestination: 'डिलिव्हरीचा पत्ता',
+    routeNotice: 'हा फक्त नकाशाचा दर्शनी आराखडा आहे · या प्रोटोटाइपमध्ये रायडरचे थेट GPS किंवा वळणावळणाचे मार्गदर्शन नाही.',
   },
   hi: {
     catch: 'आज की ताज़ी मछली', how: 'कैसे काम करता है', orders: 'ऑर्डर स्थिति', search: 'अपनी पसंदीदा मछली खोजें…',
@@ -53,6 +59,9 @@ const COPY = {
     remind: 'ऑर्डर खुलने पर याद दिलाएँ', remindSaved: 'आप नाम दिया — ऑर्डर खुलते ही हम बता देंगे।',
     cart: 'आपकी बास्केट', checkout: 'चेकआउट जारी रखें', tomorrow: 'कल की डिलीवरी',
     deliveryOn: 'डिलीवरी', fulfilment: 'पूर्ति तिथि',
+    routePreview: 'रूट प्रीव्यू', routeArea: 'ताराबाई पार्क · कोल्हापुर', plannedRoute: 'सांकेतिक नक्शा',
+    routeOrigin: 'कोलफ्रेश केंद्र', routeDestination: 'डिलीवरी का पता',
+    routeNotice: 'यह केवल नक्शे का सांकेतिक चित्र है · इस प्रोटोटाइप में राइडर का लाइव GPS या मोड़-दर-मोड़ रूट उपलब्ध नहीं है.',
   },
 } as const;
 
@@ -364,6 +373,36 @@ function App() {
         <div className="sample-order-card">
           <div className="sample-order-head"><div><span className="live-pill">IN PROGRESS</span><h2>KolFresh order · #KF-1042</h2><p>Placed {orderingWeekday} · in the kitchen</p></div><span className="sample-status"><span /> Being sourced</span></div>
           <div className="sample-order-info"><div><Icon name="calendar" size={18} /><span><small>{copy.fulfilment}</small><strong>{fulfilmentDate}</strong></span></div><div><Icon name="delivery" size={19} /><span><small>DELIVERY WINDOW</small><strong>{DELIVERY.windowStart}–{DELIVERY.windowEnd} IST</strong></span></div><div><Icon name="pin" size={18} /><span><small>DELIVERY AREA</small><strong>Kolhapur · {pincode || '416001'}</strong></span></div></div>
+          <section className="order-map-card" aria-labelledby="order-map-title">
+            <div className="order-map-header">
+              <div className="order-map-heading"><span className="order-map-kicker"><Icon name="map" size={14} />{copy.routePreview}</span><strong id="order-map-title">{copy.routeArea}</strong></div>
+              <span className="order-map-badge"><span />{copy.plannedRoute}</span>
+            </div>
+            <div className="order-map-canvas" role="img" aria-label={`${copy.routePreview}: ${copy.routeOrigin} to ${copy.routeDestination} in ${copy.routeArea}`}>
+              <svg className="order-map-art" viewBox="0 0 680 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="680" height="250" fill="#edf1e7" />
+                <path d="M16 20h104v44H16zM145 18h77v38h-77zM267 14h87v48h-87zM412 17h108v41H412zM552 17h94v50h-94zM31 83h70v48H31zM140 78h96v40h-96zM278 83h65v40h-65zM382 74h85v49h-85zM506 91h130v40H506zM20 171h95v48H20zM151 169h85v46h-85zM281 177h95v43h-95zM422 166h73v56h-73zM536 174h112v43H536z" fill="#e7e5d8" />
+                <path d="M492 13h145v57H492zM36 164h99v75H36z" fill="#dce9d8" />
+                <g fill="none" stroke="#fffefa" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M-20 48 128 86 240 72 359 105 470 93 708 47" strokeWidth="17" />
+                  <path d="M-20 154 111 125 218 145 345 115 470 143 710 113" strokeWidth="15" />
+                  <path d="M72-24 106 67 92 143 123 274M248-24 264 73 247 155 276 275M398-24 372 69 395 146 370 274M550-28 522 72 550 153 528 275" strokeWidth="13" />
+                  <path d="M-10 220 152 187 278 205 412 179 690 214" strokeWidth="10" />
+                </g>
+                <g fill="none" stroke="#d8ddd1" strokeLinecap="round" strokeWidth="1.5">
+                  <path d="M-20 48 128 86 240 72 359 105 470 93 708 47M-20 154 111 125 218 145 345 115 470 143 710 113M72-24 106 67 92 143 123 274M248-24 264 73 247 155 276 275M398-24 372 69 395 146 370 274M550-28 522 72 550 153 528 275" />
+                </g>
+                <path d="M132 194C181 164 211 178 266 150S346 157 388 119 461 112 535 64" fill="none" stroke="#fffefa" strokeLinecap="round" strokeWidth="9" />
+                <path d="M132 194C181 164 211 178 266 150S346 157 388 119 461 112 535 64" fill="none" stroke="#d47756" strokeDasharray="3 9" strokeLinecap="round" strokeWidth="4" />
+                <g fill="#748176" fontFamily="DM Sans, sans-serif" fontSize="10" fontWeight="600" letterSpacing=".6">
+                  <text x="178" y="105">SHAHUPURI</text><text x="362" y="195">TARABAI ROAD</text><text x="533" y="153">CITY PARK</text>
+                </g>
+              </svg>
+              <div className="map-stop map-stop-origin"><span className="map-stop-icon"><Icon name="fish" size={15} /></span><span>{copy.routeOrigin}</span></div>
+              <div className="map-stop map-stop-destination"><span className="map-stop-icon"><Icon name="home" size={15} /></span><span>{copy.routeDestination}</span></div>
+            </div>
+            <p className="order-map-note"><Icon name="clock" size={15} />{copy.routeNotice}</p>
+          </section>
           <div className="tracking-list">
             {[['Placed', 'Basket received', true], ['Confirmed', 'Payment confirmed', true], ['Being sourced', 'Sourcing for tomorrow’s catch', true], ['Packed', 'Cleaned, packed & labelled', false], ['Out for delivery', 'On the way to you', false], ['Delivered', 'Enjoy your fresh catch', false]].map(([title, description, complete], index) => (
               <div className={`tracking-step ${complete ? 'complete' : ''} ${index === 2 ? 'current' : ''}`} key={title as string}><span className="tracking-dot">{complete && <Icon name="check" size={12} />}</span><div><strong>{title as string}</strong><small>{description as string}</small></div></div>
